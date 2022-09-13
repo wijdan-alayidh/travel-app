@@ -1,0 +1,30 @@
+@media screen and (max-width: 1200px) {
+  #app {
+    max-width: 95%;
+  }
+
+  .weather-day {
+    flex: 0 0 calc(100% / 3);
+  }
+}
+@media screen and (max-width: 900px) {
+  #app .trip-form .travel-dates > div {
+    flex: 0 0 100%;
+  }
+  #app .trip-form .error-message {
+    flex: 0 0 100%;
+  }
+  #app .trip-form .travel-dates {
+    row-gap: 15px;
+  }
+
+  #app .trip-form .travel-dates > div label {
+    flex: 0 0 100%;
+    margin-block-end: 15px;
+    text-align: start;
+  }
+
+  .weather-day {
+    flex: 0 0 calc(100% / 2);
+  }
+}

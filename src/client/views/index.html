@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Planner</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+    <div id="app">
+        <h1 class="title-main">Travel Planner</h1>
+        <div class="trip">
+            <section class="trip-form">
+                <div class="destination">
+                    <input type="text" name="destination" id="destination" placeholder="Enter Your Destination">
+                </div>
+                <div class="travel-dates">
+                    <div class="departure-date">
+                        <label class='departure-date--label' for="departure-date">Departure Date</label>
+                        <input class='date-input departure-date--input' type="date" name="departure-date"
+                            id="departure-date">
+                    </div>
+                    <div class="return-date">
+                        <label class='return-date--label' for="return-date">Return date</label>
+                        <input class='date-input return-date--input' type="date" name="return-date" id="return-date"
+                            required>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="show" id="show-btn">Show Results</button>
+                </div>
+            </section>
+            <section class="trip-details">
+                <div class="processing-phase">
+                    Please wait for a little while as we are processing the data
+                </div>
+                <div class="show-result-phase">
+                </div>
+            </section>
+            <section class="saved-trips">
+                <h2 class="block-title">Saved Trips</h2>
+            </section>
+        </div>
+
+        <!-- <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script> -->
+
+</body>
+
+</html>

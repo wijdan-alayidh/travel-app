@@ -1,0 +1,277 @@
+#app {
+  max-width: 1200px;
+  width: 100%;
+  margin-inline: auto;
+  margin-block: 60px;
+  display: flex;
+  flex-flow: row wrap;
+  row-gap: 30px;
+
+  & > * {
+    flex: 0 0 100%;
+  }
+
+  .title-main {
+    font-size: 40px;
+    font-weight: 100;
+  }
+
+  .trip {
+    &-form {
+      display: flex;
+      flex-flow: row wrap;
+      row-gap: 15px;
+      background-color: $gray-background;
+      justify-content: center;
+      text-align: center;
+      padding-block: 40px;
+
+      .error-message {
+        flex: 0 0 80%;
+        padding-block-start: 15px;
+        font-weight: 100;
+        color: red;
+        text-align: start;
+      }
+
+      .destination,
+      .travel-dates {
+        flex-flow: row wrap;
+      }
+
+      .destination,
+      .actions {
+        flex: 0 0 100%;
+      }
+      .destination {
+        display: flex;
+        justify-content: center;
+        input#destination {
+          flex: 0 0 80%;
+        }
+      }
+      .travel-dates {
+        flex: 0 0 80%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        column-gap: 15px;
+        > div {
+          flex: 0 0 calc(100% / 2 - 8px);
+          display: flex;
+          flex-flow: row wrap;
+          align-items: center;
+          justify-content: space-between;
+          column-gap: 15px;
+          input {
+            flex: 1;
+          }
+        }
+      }
+      .actions {
+        flex: 0 0 80%;
+        margin-block: 15px;
+
+        button#show-btn {
+          background-color: #76cff5;
+          width: 80%;
+          color: white;
+        }
+      }
+    }
+    &-details {
+      margin-block: 20px;
+      .processing-phase {
+        display: none;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+        &.active {
+          opacity: 1;
+          transition: all 0.5s ease-in-out;
+          display: flex;
+          font-weight: 100;
+          text-align: center;
+          justify-content: center;
+          padding-block: 60px;
+          color: gray;
+          font-size: 24px;
+        }
+      }
+      // background-color: $pink-background;
+    }
+  }
+}
+
+.result-row {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 1200px;
+  width: 100%;
+  .city-image {
+    flex: 0 0 40%;
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: auto;
+    }
+  }
+}
+
+.result-row {
+  position: relative;
+  padding-block: 30px;
+  padding-inline: 30px;
+}
+
+.result-row .city-image {
+  flex: 0 0 100%;
+  max-height: 400px;
+  position: relative;
+}
+
+.result-row .city-image img {
+  height: 100%;
+}
+
+.result-row .city-image:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #000000a1;
+}
+
+.result-row > * {
+  flex: 0 0 100%;
+}
+
+.trip-info {
+  display: flex;
+  flex-flow: row wrap;
+  padding-block: 30px;
+  column-gap: 30px;
+  border-block-end: 1px solid gray;
+}
+
+.trip-info .title {
+  flex: 0 0 100%;
+  font-size: 28px;
+  font-weight: 100;
+  color: gray;
+}
+
+.country-title {
+  flex: 0 0 100%;
+  margin-block: 30px;
+  width: fit-content;
+  border-block-end: 1px solid #000000;
+  padding-block-end: 10px;
+}
+
+img.country-flag {
+  width: 200px;
+}
+
+ul.country-info {
+  flex: 1;
+  list-style: none;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+ul.country-info .key {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+ul.country-info .value {
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.weather {
+  display: flex;
+  flex-flow: row wrap;
+  padding-inline: 30px;
+  padding-block: 30px;
+}
+
+.weather > .weather-title {
+  flex: 0 0 100%;
+  text-align: center;
+}
+
+.weather {
+  justify-content: space-between;
+}
+
+.weather p {
+  flex: 0 0 100%;
+  text-align: center;
+}
+
+.weather > p {
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.result-row {
+  margin-block: 15px;
+  background-color: #ffedee;
+}
+
+.weather img {
+  margin-inline: auto;
+}
+.weather-day {
+  flex: 0 0 calc(100% / 4);
+  padding-inline: 15px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-day > * {
+  flex: 0 0 100%;
+  text-align: center;
+}
+
+.weather-day img {
+  max-width: 80px;
+}
+
+.weather {
+  row-gap: 30px;
+}
+.Trip-actions {
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+}
+
+.Trip-actions button {
+  width: 200px;
+}
+
+button#save-btn {
+  background: #59ce8f;
+}
+
+button#remove-btn {
+  background: #ff1e00;
+  color: white;
+}
+.saved-trips {
+  display: none;
+  &.active {
+    display: block;
+    button#save-btn {
+      display: none;
+    }
+  }
+}
