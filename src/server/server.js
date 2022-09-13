@@ -21,10 +21,6 @@ const e = require("express");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.use("images", express.static(path.join(__dirname, "../images")));
-// app.use("../client/images", express.static("images"));
-// app.use("/media", express.static(path.join("../media")));
-
 // Cors for cross origin allowance
 app.use(cors());
 
@@ -49,7 +45,7 @@ const server = app.listen(port, listening);
  */
 const geonames = {
   URL: "http://api.geonames.org/postalCodeSearchJSON?",
-  USER_NAME: process.env.geonames_username,
+  USER_NAME: "wijdan",
   MAX_ROWS: 1,
 };
 // console.log(geonames);
@@ -66,7 +62,7 @@ const geonames = {
 const weatherbit = {
   URL_FORECAST: "http://api.weatherbit.io/v2.0/forecast/daily?",
   URL_CURRENT: "https://api.weatherbit.io/v2.0/current?",
-  KEY: process.env.weatherbit_key,
+  KEY: "d7c43479b48e4c1383f18bd7b703d5b7",
 };
 // console.log(weatherbit);
 
@@ -81,7 +77,7 @@ const weatherbit = {
  */
 const pixabay = {
   URL: "https://pixabay.com/api/?",
-  KEY: process.env.pixabay_key,
+  KEY: "29732096-d682b610e70c6fb4a26a8749f",
   TYPE: "&image_type=photo",
   CATIGORY: "&category=nature",
 };
@@ -99,7 +95,7 @@ const pixabay = {
 const restcountries = {
   URL: "https://restcountries.com/v3.1/alpha/",
 };
-// console.log(pixabay);
+// console.log(restcountries);
 
 // Callback to debug
 function listening() {
