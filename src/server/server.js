@@ -98,7 +98,7 @@ const restcountries = {
 // console.log(restcountries);
 
 // Callback to debug
-function listening() {
+async function listening() {
   console.log(`Server running successfully at port: ${port}`);
 }
 
@@ -106,15 +106,15 @@ app.get("/", function (req, res) {
   res.sendFile("dist/index.html");
 });
 
-app.post("/city-coordinates", async (req, res) => {
-  let city = req.body.city;
+const postCityCoordinates = async (req, res) => {
+  let city = await req.body.city;
   let requestURL = `${geonames.URL}placename=${city}&maxRows=${geonames.MAX_ROWS}&username=${geonames.USER_NAME}`;
   try {
     const geonamesApi = await fetch(requestURL);
     const data = await geonamesApi.json();
 
     if (data.postalCodes.length == 0) {
-      let errorMessage = {
+      const errorMessage = {
         error: "No result, Make sure you input correct city name",
       };
       console.log(errorMessage);
@@ -124,10 +124,11 @@ app.post("/city-coordinates", async (req, res) => {
       res.send(data);
     }
   } catch (error) {
-    res.send(error);
     console.log(error);
   }
-});
+};
+
+app.post("/city-coordinates", postCityCoordinates);
 
 app.post("/city-info", async (req, res) => {
   const cityCoordinates = await req.body;
